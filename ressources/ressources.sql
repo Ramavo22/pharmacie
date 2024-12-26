@@ -10,12 +10,27 @@ CREATE TABLE maladie(
    PRIMARY KEY(id)
 );
 
-CREATE TABLE medicament(
+CREATE TABLE vente(
+   id SERIAL,
+   date_vente TIMESTAMP NOT NULL,
+   name VARCHAR(50) ,
+   PRIMARY KEY(id)
+);
+
+CREATE TABLE type_produit(
+   id SERIAL,
+   label VARCHAR(50)  NOT NULL,
+   PRIMARY KEY(id)
+);
+
+CREATE TABLE produit(
    id SERIAL,
    label VARCHAR(50) ,
    en_stock INTEGER,
-   labo_id INTEGER NOT NULL,
+   type_produit_id INTEGER NOT NULL,
+   labo_id INTEGER,
    PRIMARY KEY(id),
+   FOREIGN KEY(type_produit_id) REFERENCES type_produit(id),
    FOREIGN KEY(labo_id) REFERENCES laboratoire(id)
 );
 
@@ -25,7 +40,7 @@ CREATE TABLE medicament_maladie(
    medicament_id INTEGER NOT NULL,
    PRIMARY KEY(id),
    FOREIGN KEY(maladie_id) REFERENCES maladie(id),
-   FOREIGN KEY(medicament_id) REFERENCES medicament(id)
+   FOREIGN KEY(medicament_id) REFERENCES produit(id)
 );
 
 CREATE TABLE stock(
@@ -35,21 +50,16 @@ CREATE TABLE stock(
    sortie INTEGER NOT NULL,
    medicament_id INTEGER NOT NULL,
    PRIMARY KEY(id),
-   FOREIGN KEY(medicament_id) REFERENCES medicament(id)
-);
-
-CREATE TABLE vente(
-   id SERIAL,
-   date_vente TIMESTAMP NOT NULL,
-   name VARCHAR(50) ,
-   PRIMARY KEY(id)
+   FOREIGN KEY(medicament_id) REFERENCES produit(id)
 );
 
 CREATE TABLE vente_detaitls(
    id INTEGER,
    qte INTEGER,
+   produit_id INTEGER NOT NULL,
    vente_id INTEGER NOT NULL,
    PRIMARY KEY(id),
+   FOREIGN KEY(produit_id) REFERENCES produit(id),
    FOREIGN KEY(vente_id) REFERENCES vente(id)
 );
 
@@ -58,14 +68,6 @@ CREATE TABLE medicament_maladie_non_compatible(
    medicamen_id INTEGER NOT NULL,
    maladie_id INTEGER NOT NULL,
    PRIMARY KEY(id),
-   FOREIGN KEY(medicamen_id) REFERENCES medicament(id),
+   FOREIGN KEY(medicamen_id) REFERENCES produit(id),
    FOREIGN KEY(maladie_id) REFERENCES maladie(id)
-);
-
-CREATE TABLE Asso_6(
-   medicament_id INTEGER,
-   id INTEGER,
-   PRIMARY KEY(medicament_id, id),
-   FOREIGN KEY(medicament_id) REFERENCES medicament(id),
-   FOREIGN KEY(id) REFERENCES vente_detaitls(id)
 );

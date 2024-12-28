@@ -1,12 +1,12 @@
 package entity;
 
-public class TypeProduit {
+public class Laboratoire {
     private int id;
     private String label;
 
-    public TypeProduit() {}
+    public Laboratoire() {}
 
-    public TypeProduit(int id, String label) {
+    public Laboratoire(int id, String label) {
         this.id = id;
         this.label = label;
     }

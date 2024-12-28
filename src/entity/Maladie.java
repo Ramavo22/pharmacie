@@ -1,12 +1,12 @@
 package entity;
 
-public class TypeProduit {
+public class Maladie {
     private int id;
     private String label;
 
-    public TypeProduit() {}
+    public Maladie() {}
 
-    public TypeProduit(int id, String label) {
+    public Maladie(int id, String label) {
         this.id = id;
         this.label = label;
     }
@@ -27,3 +27,4 @@ public class TypeProduit {
         this.label = label;
     }
 }
+

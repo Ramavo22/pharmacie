@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="3.0">
+
+    <!-- Déclaration des servlets -->
+    <servlet>
+        <servlet-name>App</servlet-name>
+        <servlet-class>controller.App</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>App</servlet-name>
+        <url-pattern>/app</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ProduitServlet</servlet-name>
+        <servlet-class>controller.ProduitServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProduitServlet</servlet-name>
+        <url-pattern>/produit</url-pattern>
+    </servlet-mapping>
+
+    <!-- Fichier d'accueil -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+</web-app>

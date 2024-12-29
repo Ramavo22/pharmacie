@@ -14,7 +14,7 @@
         <h1 class="text-center">Gestion des Laboratoires</h1>
         
         <!-- Formulaire pour ajouter ou modifier un laboratoire -->
-        <form action="Traitement" method="post" class="form-inline">
+        <form action="/Traitement" method="post" class="form-inline">
             <input type="hidden" name="action" value="saveLaboratoire">
             <input type="hidden" name="id" id="lab-id">
             <div class="form-group">

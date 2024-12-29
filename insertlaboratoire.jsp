@@ -45,10 +45,11 @@
             <h1>Insertion Laboratoire</h1>
             <p>Remplissez le formulaire ci-dessous pour ajouter un nouveau laboratoire.</p>
 
-            <form action="insertionLaboratoireController.jsp" method="post">
+            <form action="Traitement" method="post">
                 <div class="form-group">
+                    <input type="hidden" name="action" value="saveLaboratoire">
                     <label for="nom">Nom du Laboratoire :</label>
-                    <input type="text" class="form-control" id="nom" name="nom" required>
+                    <input type="text" class="form-control" id="nom" name="label" required>
                 </div>
                
                 <button type="submit" class="btn btn-primary">Ajouter</button>
